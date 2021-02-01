@@ -39,17 +39,9 @@ Route::get('/', function () {
 });
 
 Route::get('notas', function () {
-    return 'Aqui se van a visualizar las notas';
+    return view('notas');
 });
 
-Route::get('notas/{id}', function ($id) {
-    return 'Aqui vamos a ver las notas: ' . $id;
-});
-
-Route::get('notas/{id}/editar', function ($id) {
-    return 'Aqui vamos a editar las notas: ' . $id;
-});
-
-Route::get('notas/crear', function () {
-    return 'Aqui vamos a crear las notas';
+Route::get('agregar', function () {
+    return view('agregar');
 });
