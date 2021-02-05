@@ -5,22 +5,19 @@
             
         <main class="content">
             <div class="cards">
+                @forelse ($notas as $nota)
                 <div class="card card-small">
                     <div class="card-body">
-                        @forelse ($notas as $nota)
                             <h4>{{ $nota }}</h4>
 
                             <p>
                                 {{ $nota }}
 
-                            </p>
-                            @empty
-                            <p>No hay registros que mostrar. <a href="/agregar">Agregar</a></p>    
-                        @endforelse
+                            </p>    
                     </div>
 
                     <footer class="card-footer">
-                        <a class="action-link action-edit">
+                        <a href="{{ route('notas.edit', ['id' => $loop->iteration]) }}" class="action-link action-edit">
                             <i class="icon icon-pen"></i>
                         </a>
                         <a class="action-link action-delete">
@@ -28,6 +25,9 @@
                         </a>
                     </footer>
                 </div>
+                @empty
+                <p>No hay registros que mostrar. <a href="/agregar">Agregar</a></p>
+                @endforelse
                 <div class="card">
                     <div class="card-body">
                         <h4>Instalación de Laravel</h4>
