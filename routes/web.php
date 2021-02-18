@@ -15,22 +15,25 @@ use Illuminate\Support\Facades\Route;
 
 /*
 Route::get('/', function () {
-    return [
-        'Clases' => [
-            'Instalacion de Laravel',
-            'Routes de Laravel',
-            'Views de Laravel',
-        ]
-    ];
+    return view('welcome');
 });
 */
-/*
-Route::get('clases', function () {
-    return 'Aqui se van a visualizar las clases';
-});
 
-Route::get('notas/temas', function () {
-    return 'Aqui se van a visualizar los temas';
+/*
+Route::get('/', function () {
+    return 'Hola mundo!';
+});
+*/
+
+/*
+Route::get('/', function () {
+    return [
+        'Clases' => [
+            'Instalación Laravel',
+            'Routes de Laravel',
+            'Views de Laravel'
+        ]
+    ];
 });
 */
 
@@ -39,19 +42,17 @@ Route::get('/', function () {
 });
 
 Route::get('notas', function () {
-    $notas= [
-        'Primer nota',
-        'Segunda nota',
-        'Tercer nota',
-        'Cuarta nota',
-    ];
+    $notas = DB::table('notas')->get();
     return view('notas', ['notas' => $notas]);
 })->name('notas.index');
 
-Route::get('agregar', function (){
+Route::get('agregar', function () {
     return view('agregar');
 });
 
-Route::get('notas/{id}/editar', function ($id){
-    return 'Aqui se van a editar las notas'.$id;
+Route::get('notas/{id}/editar', function ($id) {
+    $notas = DB::table('notas')
+    ->where('id', $id)
+    ->first();
+    return 'Aquí se van a editar las notas' .$id;
 })->name('notas.edit');

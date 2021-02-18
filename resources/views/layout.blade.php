@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Notas</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-    <!-- <script type="text/javascript" src="{{ asset('js/script.js') }}"></script> -->
+    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
     <div class="wrap">
         <header class="head">
@@ -21,7 +23,7 @@
                         </a>
                     </li>
                     <li class="main-nav-item ">
-                        <a href="{{url('agregar')}}" class="main-nav-link">
+                        <a href="{{ url('agregar') }}" class="main-nav-link">
                             <i class="icon icon-pen"></i>
                             <span>Nueva nota</span>
                         </a>
@@ -29,8 +31,8 @@
                 </ul>
             </nav>
         </header>
-        
-        @yield('content')
+
+        @yield('content');
 
         <footer class="foot">
             <div class="ad">
@@ -45,4 +47,5 @@
         </footer>
     </div>
 </body>
+
 </html>
