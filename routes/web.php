@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Notas;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,7 @@ Route::get('/', function () {
 });
 
 Route::get('notas', function () {
-    $notas = DB::table('notas')->get();
+    $notas = Notas::all(); //DB::table('notas')->get();
     return view('notas', ['notas' => $notas]);
 })->name('notas.index');
 
@@ -51,9 +52,7 @@ Route::get('agregar', function () {
 });
 
 Route::get('notas/{id}/editar', function ($id) {
-    $nota = DB::table('notas')
-    ->where('id', $id)
-    ->first();
+    $nota = Notas::find($id); //DB::table('notas')->where('id', $id)->first();
     //return 'Aquí se van a editar las notas' .$id;
     return view('editar', ['nota' => $nota]);
 })->name('notas.edit');
