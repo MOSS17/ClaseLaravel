@@ -36,4 +36,14 @@ class NotasController extends Controller
     }
 
 
+    public function update(Notas $nota, Request $request) {
+        
+        $nota->update([
+            'titulo' => $request->input('title'),
+            'contenido' => $request->input('content'),
+        ]);
+
+        return redirect('/notas');
+    }
+
 }
